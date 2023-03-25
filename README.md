@@ -44,3 +44,6 @@ comments schema:
         post_id: integer,
         user_id: integer
     }
+
+**Issues faced**
+-> Mongo client not connecting to db - issue is with localhost being configured to a different address in the system
