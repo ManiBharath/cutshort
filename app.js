@@ -12,16 +12,13 @@
 
 import express from 'express';
 import bodyParser from 'body-parser';
+import { userRouter } from './routes/users.js';
 
 const app = express();
 
 app.use(bodyParser.json());
 
-app.use('/', (req, res, next) => {
-    res.status(201).json({
-        message: "successfully connected"
-    })
-})
+app.use('/users', userRouter)
 
 app.listen('8000', () => {
     console.log('connected')
