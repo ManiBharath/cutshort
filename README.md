@@ -4,9 +4,9 @@ This API is being built for a social media app with todo lists
 
 Following are the routes and functionalities for the API:
 
-1. /user - post - create a new user
-2. /login - get - login for existing user
-3. /todo - post - create a new todo
+1. /user - post - create a new user - done
+2. /login - get - login for existing user - done
+3. /todo - post - create a new todo - 
 4. /todo/:id - post - update an existing todo
 5. /todo/:id - delete - delete an existing todo
 6. /post - post - create a new post
