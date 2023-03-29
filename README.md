@@ -6,13 +6,13 @@ Following are the routes and functionalities for the API:
 
 1. /user - post - create a new user - done
 2. /login - get - login for existing user - done
-3. /todo - post - create a new todo - 
-4. /todo/:id - post - update an existing todo
-5. /todo/:id - delete - delete an existing todo
-6. /post - post - create a new post
-7. /post/:id - post - update an existing post
+3. /todo/create - post - create a new todo - done
+4. /todo/update - post - update an existing todo - done
+5. /todo/:id - delete - delete an existing todo - done
+6. /post/create - post - create a new post
+7. /post/update - post - update an existing post
 8. /post/:id - delete - delete a post
-9. /todo - get - get all todos
+9. /todo - get - get all todos - done
 10. /post - get - get all posts
 
 **Schemas:**
@@ -20,7 +20,9 @@ Following are the routes and functionalities for the API:
 todo schema:
     {
         id:  integer,
-        content: string
+        title: string,
+        createdby_id: ObejctId,
+        createdby_name: string,
         deleteFlag: bool
     }
 
@@ -37,6 +39,9 @@ post schema:
         id: integer,
         post_title: string,
         post_content: string
+        title: string,
+        createdby_id: ObejctId,
+        createdby_name: string,
         deleteFlag: bool
     }
 

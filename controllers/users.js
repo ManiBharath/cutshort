@@ -1,4 +1,4 @@
-import { dbConnect } from "../models/dbconnection.js";
+import { dbConnect } from "../DB/dbconnection.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 

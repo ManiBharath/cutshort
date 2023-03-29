@@ -15,6 +15,7 @@ import bodyParser from 'body-parser';
 import { userRouter } from './routes/users.js';
 import jwt from 'jsonwebtoken';
 import { todoRouter } from './routes/todo.js';
+import { postsRouter } from './routes/posts.js';
 
 const app = express();
 
@@ -42,6 +43,8 @@ app.use('/', (req, res, next)=>{
 })
 
 app.use('/todo', todoRouter);
+
+app.use('/posts', postsRouter);
 
 app.listen('8000', () => {
     console.log('connected')

@@ -5,6 +5,6 @@ export const todoRouter = express.Router();
 
 todoRouter.post('/create', createTodo);
 todoRouter.put('/update', updateTodo);
-todoRouter.delete('/delete', deleteTodo);
+todoRouter.delete('/delete/:id', deleteTodo);
 todoRouter.put('/complete', markAsComplete);
 todoRouter.get('/', getTodos);

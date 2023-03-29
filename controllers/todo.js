@@ -1,4 +1,4 @@
-import { dbConnect } from "../models/dbconnection.js";
+import { dbConnect } from "../DB/dbconnection.js";
 import { ObjectId } from "mongodb";
 
 export async function createTodo(req, res) {
@@ -81,7 +81,7 @@ export async function deleteTodo(req, res) {
         let dbo = await dbConnect();
         let data = dbo.collection('todo');
 
-        let todoId = new ObjectId(req.body.todoId)
+        let todoId = new ObjectId(req.params.id)
 
         let getTodo = await data.findOne({ '_id': todoId, 'delete': false });
 
@@ -93,7 +93,7 @@ export async function deleteTodo(req, res) {
 
             if (req.user._id == getTodo.createdBy_id) {
                 data.updateOne({
-                    "_id": new ObjectId(req.body.todoId)
+                    "_id": new ObjectId(req.params.id)
                 }, {
                     $set: {
                         delete: true
@@ -153,20 +153,21 @@ export async function markAsComplete(req, res) {
     }
 }
 
+
 export async function getTodos(req, res) {
     try {
-
-        console.log('controller invoked')
         let dbo = await dbConnect();
-        let data = dbo.collection('todo');
+        let collection = dbo.collection('todo');
 
-        let todos = data.find({})
-
-        console.log(todos);
+        let todos = await collection.find({
+            'delete': false
+        }).toArray()
+        console.log('todos', todos);
 
         res.json({
-            todos: todos
+            data:todos
         })
+
     }
     catch (err) {
         res.status(500);
